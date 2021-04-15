@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+{% block title %}Editer Voiture{% endblock %}
+
+{% block body %}
+    <div class="container bg-light p-5 col-5 mt-5">
+<h2 class="text-center">FORMULAIRE D'EDITION N°{{car.id}}</h2>
+    {# {{form(form_car)}} #}
+    {{form_start(form_car, {'attr':{'class':'mt-5'}})}}
+    {{form_errors(form_car)}}
+    {# {{form_widget(form_car)}} #}
+    {{form_label(form_car.marque, 'Marque de voiture')}}
+    {{form_widget(form_car.marque, {'attr':{'class':'bg-secondary'}}) }}
+    {{form_errors(form_car.marque)}}
+
+    {{form_rest(form_car)}} {# #}
+
+    <button type="submit" class="btn btn-warning col-12 mt-2">Modifier</button>
+
+</div>
+    {{form_end(form_car)}}
+
+{% endblock %}
+            
+            {# <form action="" method="post" class="" enctype="">
+                <h2 class="text-center text-decoration-underline mb-4 mt-4">Modification de la voiture n°  </h2>
+               
+                <div class="row">
+                    <div class="col">
+                        <label for="marque">Marque</label>
+                        <input type="text" id="modele" name="modele" class="form-control" value="">
+                    </div>
+                    <div class="col">
+                        <label for="modele">Modele</label>
+                        <input type="text" id="modele" name="modele" class="form-control" value="">  
+                    </div>
+                </div>    
+                <div class="row " >
+                    <div class="col">
+                        <label for="pays">Pays</label>
+                        <input type="pays" id="pays" name="pays" class="form-control" value="">
+                    </div>
+                    <div class="col">
+                        <label for="prix">Prix</label>
+                        <input type="text" id="prix" name="prix" class="form-control" value="">
+                    </div>
+                </div>
+                <div class="row mt-3 mb-3">
+                    <div class="col">
+                        <label for="desc">Description</label>
+                        <textarea type="text" id="desc" name="desc" class="form-control" value=""></textarea>
+                    </div>
+                </div>
+                 
+                <button type="submit" class="btn col-12 mb-3" name="soumis" style="border-radius: 30px; color:rgb(174,140,95); background-color:rgb(3, 3, 29);">Modifier</button>
+           
+            </form>
+        </div>
+    </div>
+</div> #}
+
+
+
+
+
+        
+

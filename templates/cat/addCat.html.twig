@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout Catégorie{% endblock %}
+{% block body %}
+<div class="container bg-light p-5 col-5 mt-5">
+<h2 class="text-center">FORMULAIRE D'AJOUT DE CATEGORIE</h2>
+    {# {'attr':{'novalidate':'novalidate'}} est ajouté juste pour vérifier la validité des informations saisies niveau serveur et non visuellement via le required de html > Voir les infos de sécurité indiquées dans le @Assert\Length de l'entitée #}
+    {{ form_start(form, {'attr':{'novalidate':'novalidate'}})}}
+    {{ form_errors(form)}}
+    <div class="row">
+        <div class="col">
+            {{ form_row(form.nom, {'attr':{'placeholder': 'Veuillez entrer le nom de la catégorie'}} )}}
+        </div>
+    </div>
+
+    {{ form_rest(form) }}
+
+    <button type="submit" class="btn btn-primary col-12 mt-2">Ajouter</button>
+
+    {{ form_end(form)}}
+</div>
+    
+{% endblock %}

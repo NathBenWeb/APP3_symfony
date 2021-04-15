@@ -1,0 +1,51 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+    <h1>Liste des voitures </h1>
+    <div class="text-end">
+        <a href="{{path('app_add')}}" class="btn btn-warning mb-5"><i class="fas fa-plus"></i></a>
+    </div>
+    <div class="col-4 offset-8 input-group">
+        {{form_start(form_search)}}
+        {{form_widget(form_search)}}
+            <button type="submit" class="btn btn-secondary"><i class="fas fa-search"></i></button>
+        {{form_end(form_search)}}
+
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Marque</th>
+                <th>Modele</th>
+                <th>Pays</th>
+                <th>Prix</th>
+                <th>Catégorie</th>
+                <th>Image</th>
+                <th>Description</th>
+                <th colspan="2">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {# Ici on récupère les objets des getters et setters des classes souhaitées et pour catégorie on appelle d'abord l'objet correspondant à la clé étrangère dans Autos puis l'objet de la catégorie qu'on souhaite afficher #}
+        {% for car in tabCars %}
+            <tr>
+                <td>{{car.id}}</td>
+                <td>{{car.marque}}</td>
+                <td>{{car.modele}}</td>
+                <td>{{car.pays}}</td>
+                <td>{{car.prix}}</td>
+                <td>{{car.categorie.nom}}</td>
+                <td><img src="{{ asset('pictures/' ~ car.image)}}" alt="" width="100"/></td>
+                <td>{{car.description}}</td>
+                {# <td><a href="{{ path('app_edit', {id:car.id}) }}">Edit</a></td>
+                <td><a onclick="return confirm('Etes-vous sûr de vouloir supprimer')" href="{{ path('app_delete', {id:car.id}) }}">Supprimer</a></td> #}
+                <td><a href="{{ path('app_edit', {id: car.id})}}" class="btn btn-success"><i class="fas fa-pen"></i></a></td>
+                <td><a onclick="return confirm('Etes-vous sûr de supprimer')" href="{{ path('app_delete', {id: car.id})}}" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+
+{% endblock %}

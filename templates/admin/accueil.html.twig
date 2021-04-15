@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<h1>Accueil</h1>
+
+ {# <img src="images/{{plat}}" alt="" width="50px"/> <br/> #}
+<div  class="row">
+    {% for meal in tabMeals %}
+        <div id="card" class="col-6 mt-2">
+            <img src="pictures/cl_menu.png" alt="..." width="600px" height="250px">
+            <h5 id="menuAccueil" class="card-title ml-2 mb-4 mt-3">{{meal.name_meal}}<span class=""{{meal.chef}}><span></h5>
+            <!-- <p id="priceAccueil" class="card-text"></p> -->
+        </div>
+
+        {# <div class=""> #}
+            <div class="col-6 card-body">
+                <p class="titrePlat">Pour commencer : </p>
+                <p class="card-text" id="start" >{{meal.start}}</p>
+                <p class="titrePlat">Pour suivre : </p>
+                <p class="card-text" id="dish" >{{meal.dish}}</p>
+                <p class="titrePlat">Et pour finir : </p>
+                <p class="card-text" id="dessert" >{{meal.dessert}}</p>
+            </div>
+        {# </div> #}
+    {% endfor %}
+</div>
+
+
+{% endblock %}

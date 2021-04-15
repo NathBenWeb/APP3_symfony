@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editer Catégorie{% endblock %}
+
+{% block body %}
+    <div class="container bg-light p-5 col-5 mt-5">
+<h2 class="text-center">FORMULAIRE D'EDITION N°{{cat.id}}</h2>
+    
+    {{form_start(form_cat, {'attr':{'class':'mt-5'}})}}
+    {{form_errors(form_cat)}}
+    {{form_label(form_cat.nom, 'Nom catégorie')}}
+
+    {{form_rest(form_cat)}}
+
+    <button type="submit" class="btn btn-warning col-12 mt-2">Modifier</button>
+
+</div>
+    {{form_end(form_cat)}}
+
+{% endblock %}
